@@ -24,7 +24,7 @@ namespace Task1._1Lab11
                     Console.Write("Введите b=");
                     double b = Convert.ToDouble(Console.ReadLine());
                     LineEq lineEq = new LineEq(k, b);
-                    double x = Root(k, b);
+                    double x = lineEq.Root();
                     Console.WriteLine("x={0:f2}", x);
                     Console.ReadKey();
                 }
@@ -35,12 +35,7 @@ namespace Task1._1Lab11
                     continue;
                 }
             }
-        }
-        static double Root(double k, double b)
-        {
-            double x = (k != 0) ? -b / k :0;
-            return x;
-        }
+        }        
         struct LineEq
         {
             public double k;
@@ -49,6 +44,11 @@ namespace Task1._1Lab11
             {
                 this.k = k;
                 this.b = b;
+            }
+            public double Root()
+            {
+                double x = (k != 0) ? -b / k : 0;
+                return x;
             }
         }
     }
